@@ -1,5 +1,4 @@
 <div class="item">
-
     {{ $.Scratch.Set "link" .RelPermalink }}
     {{ with .Params.repo }}
         {{ $repoHost := default "github" $.Params.repoHost }}
@@ -16,8 +15,19 @@
     {{ .Date.Format (.Site.Params.dateFormat | default "January 2, 2006") | $.Scratch.Set "subheader" }}
     {{ with .Description }} {{ $.Scratch.Set "subheader" . }} {{ end }}
 
-    <h4><a href="{{ .Scratch.Get "link" }}">{{ .Title }}</a></h4>
-    <h5>{{ $.Scratch.Get "subheader" }}</h5>
-    {{ partial "tags" . }}
 
+    <a href='{{ .Scratch.Get "link" }}'>
+        <div>
+            {{ if .Params.Image }}
+                <div class="ap-img">
+                    <img src="{{ .Params.Image }}" alt="">
+                </div>
+            {{ end }}
+
+            <h4>{{ .Title }}</h4>
+            <h5>{{ .Description }}</h5>
+            
+            <div class="date">{{ .Date.Format (.Site.Params.dateFormat | default "January 2, 2006") }}</div>
+        </div>
+    </a>
 </div>
