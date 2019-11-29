@@ -7,6 +7,15 @@
         <h2>{{ markdownify .Site.Params.Description }}</h2>
         {{ with .Content }} <div class="homepage-content text-justify">{{ . }}</div> {{ end }}
     </div>
+    
+
+    <h2>Latest updates</h2>
+    <div class='tile'>
+        {{ range (.Paginator 3).Pages }} {{ partial "list-item" . }} {{ end }}
+    </div>
+
+    {{ partial "paginator" . }}
+
 </main>
 
 {{ partial "footer" . }}
