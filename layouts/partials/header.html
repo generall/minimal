@@ -26,6 +26,10 @@
             </script>
         {{ end }}
 
+        {{ if .Site.Params.YandexWebmaster }}
+            <meta name="yandex-verification" content="{{ .Site.Params.YandexWebmaster }}" />
+        {{ end }}
+
         {{ if .Site.Params.MathJax | default true }}
             <script type="text/x-mathjax-config">
                 MathJax.Hub.Config({
