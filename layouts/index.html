@@ -11,7 +11,7 @@
 
     <h2>Latest updates</h2>
     <div class='tile'>
-        {{ range (.Paginator 3).Pages }} {{ partial "list-item" . }} {{ end }}
+        {{ range (.Paginator 6).Pages }} {{ partial "list-item" . }} {{ end }}
     </div>
 
     {{ partial "paginator" . }}
